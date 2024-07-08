@@ -3,7 +3,7 @@
 Provides eye tracking and lip tracking in GT:VR by providing a bridge between your tracking hardware and GTV:VR's OSC server.
 ## [Get started here!](https://docs.vrcft.io/docs/intro/getting-started)
 
-[![Discord](https://discord.com/api/guilds/444433968201334787/widget.png)](https://discord.gg/Fh4FNehzKn)
+[![Discord](https://discord.com/api/guilds/444433968201334787/widget.png)](https://discord.gg/FWSy7Ee)
 
 ## 🎥 Demo
 
