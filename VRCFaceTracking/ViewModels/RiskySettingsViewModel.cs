@@ -30,7 +30,7 @@ public class RiskySettingsViewModel : ObservableObject
         if (!Enabled)
             return;
         
-        _logger.LogInformation("Reinitializing VRCFT...");
+        _logger.LogInformation("Reinitializing GT:VR Face Tracking...");
         
         _mainService.Teardown();
         
@@ -39,27 +39,30 @@ public class RiskySettingsViewModel : ObservableObject
 
     public void ResetVRCFT()
     {
-        _logger.LogInformation("Resetting VRCFT...");
+        _logger.LogInformation("Resetting GT:VR Face Tracking...");
         
-        // Create a file in the VRCFT folder called "reset"
+        // Create a file in the GT:VR folder called "reset"
         // This will cause the app to reset on the next launch
         File.Create(Path.Combine(Utils.PersistentDataDirectory, "reset"));
     }
 
     public void ResetVRCAvatarConf()
     {
-        _logger.LogInformation("Resetting VRChat avatar configuration...");
+        _logger.LogInformation("Resetting GT:VR avatar configuration...");
         try
         {
-            foreach (var userFolder in Directory.GetDirectories(VRChat.VRCOSCDirectory))
-                if (Directory.Exists(userFolder + "\\Avatars"))
-                {
-                    Directory.Delete(userFolder + "\\Avatars", true);
-                }
+            if (Directory.Exists(VRChat.VRCOSCDirectory))
+            {
+                var avatarFiles = Directory.GetFiles(VRChat.VRCOSCDirectory);
+                foreach (var avatarFile in avatarFiles)
+                    File.Delete(avatarFile);
+
+                _logger.LogInformation($"{avatarFiles.Length} avatars were reset.");
+            }
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Failed to reset VRChat avatar configuration! {Message}", e.Message);
+            _logger.LogError(e, "Failed to reset GT:VR avatar configuration! {Message}", e.Message);
         }
     }
 }

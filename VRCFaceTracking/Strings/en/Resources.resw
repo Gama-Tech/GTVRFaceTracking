@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>VRCFaceTracking</value>
+    <value>GT:VR Face Tracking</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>VRCFaceTracking</value>
+    <value>GT:VR Face Tracking</value>
   </data>
   <data name="Shell_Main.Content" xml:space="preserve">
     <value>Home</value>
@@ -148,16 +148,16 @@
     <value>Default</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>VRChat OSC App to allow AV3 Avatars to interact with eye and lip tracking runtimes</value>
+    <value>GT:VR OSC App to allow Avatars to interact with eye and lip tracking runtimes</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>VRChat OSC App to allow AV3 Avatars to interact with eye and lip tracking runtimes</value>
+    <value>GT:VR OSC App to allow Avatars to interact with eye and lip tracking runtimes</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Statement</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.NavigateUri" xml:space="preserve">
-    <value>https://github.com/benaclejames/VRCFaceTracking</value>
+    <value>https://github.com/Gama-Tech/GTVRFaceTracking</value>
   </data>
   <data name="AppNotificationSamplePayload" xml:space="preserve">
     <value>&lt;toast launch="action=ToastClick"&gt;
@@ -204,19 +204,19 @@
     <value>Local Test Avatars are not supported and will cause issues</value>
   </data>
   <data name="Copyright.Description" xml:space="preserve">
-    <value>© 2023 VRCFaceTracking. All rights reserved.</value>
+    <value>Gama.Tech © 2024 </value>
   </data>
   <data name="Credits.Description" xml:space="preserve">
-    <value>The nerds who made this all possible &#60;3</value>
+    <value>Everyone who made this possible &#60;3</value>
   </data>
   <data name="Dependencies.Header" xml:space="preserve">
-    <value>Dependencies &amp; references</value>
+    <value>Dependencies, references &amp; sources</value>
   </data>
   <data name="Description.Text" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="Disclaimer.Header" xml:space="preserve">
-    <value>THIS CODE AND INFORMATION IS PROVIDED ‘AS IS’ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.</value>
+    <value>THIS SOFTWARE IS PROVIDED AS-IS WITHOUT WARRANTY OF ANY KIND. BY USING THIS SOFTWARE YOU AGREE WE MAY NOT BE HELD LIABLE FOR ANY DAMAGE THAT MAY RESULT FROM ITS USE.</value>
   </data>
   <data name="Downloads.Text" xml:space="preserve">
     <value>Downloads</value>
@@ -248,6 +248,15 @@
   <data name="msOutgoing.Text" xml:space="preserve">
     <value>m/s Outgoing</value>
   </data>
+  <data name="update_available.Title" xml:space="preserve">
+    <value>Update Available</value>
+  </data>
+  <data name="update_available.ButtonText" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="update_available.Description" xml:space="preserve">
+    <value>A newer version of GT:VR Face Tracking is available.</value>
+  </data>
   <data name="no_modules_installed_warning.Title" xml:space="preserve">
     <value>No Modules Installed</value>
   </data>
@@ -258,7 +267,7 @@
     <value>OSC Settings Modified</value>
   </data>
   <data name="osc_was_disabled_warning.Description" xml:space="preserve">
-    <value>We noticed your OSC was turned off in VRChat, we've just enabled it for you. If the game was open when this happened, you may need to manually enable it from your raidal menu. If not, you should be good to go!</value>
+    <value>We noticed your OSC was turned off in GT:VR, we've just enabled it for you. If the game was open when this happened, you may need to manually enable it from your raidal menu. If not, you should be good to go!</value>
   </data>
   <data name="OSCStatus.Text" xml:space="preserve">
     <value>OSC Status</value>
@@ -280,6 +289,9 @@
   </data>
   <data name="ToggleTracking.Content" xml:space="preserve">
     <value>Toggle Tracking</value>
+  </data>
+  <data name="SourceRepoCard.Header" xml:space="preserve">
+    <value>GT:VR Face Tracking Repo</value>
   </data>
   <data name="CloneRepoCard.Header" xml:space="preserve">
     <value>To clone this repository</value>
@@ -312,12 +324,12 @@
     <value>Risky Settings</value>
   </data>
   <data name="RiskySettings.Description" xml:space="preserve">
-    <value>Danger, danger. High voltage..</value>
+    <value>Use at your own risk</value>
   </data>
   <data name="AutoStartSettings.Header" xml:space="preserve">
     <value>Auto Start</value>
   </data>
   <data name="AutoStartSettings.Description" xml:space="preserve">
-    <value>Auto Start when SteamVR is launched</value>
+    <value>Automatically start GT:VR Face Tracking when SteamVR is launched</value>
   </data>
 </root>

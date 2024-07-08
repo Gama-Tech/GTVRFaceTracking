@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using VRCFaceTracking.Contracts.Services;
 using VRCFaceTracking.ViewModels;
+using Windows.System;
 
 namespace VRCFaceTracking.Views;
 
@@ -25,4 +26,6 @@ public sealed partial class MainPage : Page
     }
 
     private void NoModuleButton_Click(object sender, RoutedEventArgs e) => NavigationService.NavigateTo(typeof(ModuleRegistryViewModel).FullName!);
+    private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+    => await Launcher.LaunchUriAsync(new Uri("https://github.com/Gama-Tech/GTVRFaceTracking/releases"));
 }

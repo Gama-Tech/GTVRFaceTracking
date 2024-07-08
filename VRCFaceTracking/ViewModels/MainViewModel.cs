@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
 using VRCFaceTracking.Core.Contracts.Services;
+using Newtonsoft.Json;
 
 namespace VRCFaceTracking.ViewModels;
 
@@ -43,7 +44,14 @@ public class MainViewModel : ObservableRecipient
         get => _noModulesInstalled;
         set => SetProperty(ref _noModulesInstalled, value);
     }
-    
+
+    private bool _updateAvailable;
+    public bool UpdateAvailable
+    {
+        get => _updateAvailable;
+        set => SetProperty(ref _updateAvailable, value);
+    }
+
     private bool _oscWasDisabled;
     public bool OscWasDisabled
     {
@@ -58,6 +66,48 @@ public class MainViewModel : ObservableRecipient
         set => SetProperty(ref _isRecvConnected, value);
     }
 
+    public string Version
+    {
+        get
+        {
+            var version = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version;
+            return version != null ? $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}" : "Unknown";
+        }
+    }
+
+    private async void CheckForUpdates()
+    {
+        // GitHub API endpoint                                   
+        var apiUrl = $"https://api.github.com/repos/Gama-Tech/GTVRFaceTracking/releases/latest";
+
+        using (HttpClient client = new HttpClient())
+        {
+            // Set user-agent header to avoid being blocked by GitHub
+            client.DefaultRequestHeaders.Add("User-Agent", "request");
+
+            // Make request to GitHub API
+            HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Parse JSON response
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                if (string.IsNullOrEmpty(jsonResponse))
+                {
+                    return;
+                }
+
+                dynamic releaseInfo = JsonConvert.DeserializeObject(jsonResponse);
+
+                // Get latest version
+                string latestVersion = releaseInfo.tag_name;
+
+                // Compare versions with your application's version
+                UpdateAvailable = (latestVersion != null && Version != latestVersion);
+            }
+        }
+    }
+
     public MainViewModel()
     {
         AvatarInfo = App.GetService<IAvatarInfo>();
@@ -67,7 +117,8 @@ public class MainViewModel : ObservableRecipient
         var installedNewModules = moduleDataService.GetInstalledModules();
         var installedLegacyModules = moduleDataService.GetLegacyModules().Count();
         NoModulesInstalled = installedNewModules.Count() == 0 && installedLegacyModules == 0;
-        
+        CheckForUpdates();
+
         // We now start 2 new threads to count both the send rate and recv rate of the osc service over 1 second intervals at a time
         // This is done in a separate thread to not block the UI thread
         // We also use a timer to update the UI every 1 second

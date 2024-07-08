@@ -3,6 +3,8 @@ using VRCFaceTracking.Core.Contracts.Services;
 using VRCFaceTracking.Core;
 using VRCFaceTracking.Core.OSC;
 using VRCFaceTracking.Core.OSC.DataTypes;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace VRCFaceTracking;
 
@@ -30,7 +32,7 @@ public class MainStandalone : IMainService
 
     public async Task Teardown()
     {
-        _logger.LogInformation("VRCFT Standalone Exiting!");
+        _logger.LogInformation("GT:VR Face Tracking Standalone Exiting!");
         _libManager.TeardownAllAndResetAsync();
 
         await _mutator.SaveCalibration();
@@ -50,12 +52,12 @@ public class MainStandalone : IMainService
         // Ensure OSC is enabled
         if (VRChat.ForceEnableOsc()) // If osc was previously not enabled
         {
-            _logger.LogWarning("VRCFT detected OSC was disabled and automatically enabled it.");
+            _logger.LogWarning("GT:VR Face Tracking detected OSC was disabled and automatically enabled it.");
             // If we were launched after VRChat
             if (VRChat.IsVRChatRunning())
                 _logger.LogError(
-                    "However, VRChat was running while this change was made.\n" +
-                    "If parameters do not update, please restart VRChat or manually enable OSC yourself in your avatar's expressions menu.");
+                    "However, GT:VR was running while this change was made.\n" +
+                    "If parameters do not update, please restart GT:VR or manually enable OSC yourself in your avatar's expressions menu.");
         }
 
         ConfigParser.OnConfigLoaded += (relevantParams, configRaw) =>

@@ -64,7 +64,10 @@ public sealed partial class SettingsPage : Page
     }
 
     private async void bugRequestCard_Click(object sender, RoutedEventArgs e)
-    => await Launcher.LaunchUriAsync(new Uri("https://github.com/benaclejames/VRCFaceTracking/issues/new/choose"));
+    => await Launcher.LaunchUriAsync(new Uri("https://github.com/Gama-Tech/GTVRFaceTracking/issues/new/choose"));      
+    
+    private async void sourceRepoCard_Click(object sender, RoutedEventArgs e)
+    => await Launcher.LaunchUriAsync(new Uri("https://github.com/Gama-Tech/GTVRFaceTracking"));
 
     private void themeMode_SelectionChanged(object sender, RoutedEventArgs e)
     {

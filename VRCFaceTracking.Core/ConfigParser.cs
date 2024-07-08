@@ -66,19 +66,14 @@ namespace VRCFaceTracking
             }
             
             AvatarConfigSpec avatarConfig = null;
-            foreach (var userFolder in Directory.GetDirectories(VRChat.VRCOSCDirectory))
+            var avatarFile = Path.Combine(VRChat.VRCOSCDirectory, $"{newId}.json");
+
+            if (File.Exists(avatarFile))
             {
-                if (Directory.Exists(userFolder + "\\Avatars"))
-                    foreach (var avatarFile in Directory.GetFiles(userFolder+"\\Avatars"))
-                    {
-                        var configText = File.ReadAllText(avatarFile);
-                        var tempConfig = JsonSerializer.Deserialize<AvatarConfigSpec>(configText);
-                        if (tempConfig == null || tempConfig.id != newId)
-                            continue;
-                    
-                        avatarConfig = tempConfig;
-                        break;
-                    }
+                var configText = File.ReadAllText(avatarFile);
+                var tempConfig = JsonSerializer.Deserialize<AvatarConfigSpec>(configText);
+                if (tempConfig != null && tempConfig.id == newId)
+                    avatarConfig = tempConfig;
             }
 
             if (avatarConfig == null)

@@ -53,7 +53,7 @@ public sealed partial class ModuleRegistryDetailControl : UserControl
                 control.InstallButton.Content = "Update";
                 break;
             case InstallState.AwaitingRestart:
-                control.InstallButton.Content = "Please Restart VRCFT";
+                control.InstallButton.Content = "Please Restart GT:VR Face Tracking";
                 control.InstallButton.IsEnabled = false;
                 break;
         }
@@ -100,7 +100,7 @@ public sealed partial class ModuleRegistryDetailControl : UserControl
             }
             case InstallState.Installed:
             {
-                InstallButton.Content = "Please Restart VRCFT";
+                InstallButton.Content = "Please Restart GT:VR Face Tracking";
                 InstallButton.IsEnabled = false;
                 _libManager.TeardownAllAndResetAsync();
                 _moduleInstaller.MarkModuleForDeletion(ListDetailsMenuItem!);

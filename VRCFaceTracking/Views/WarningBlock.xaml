@@ -8,7 +8,7 @@
 
     <Border
         Visibility="{x:Bind IsVisible, Mode=OneWay}"
-        Margin="0, 20, 0, 0" Padding="15" CornerRadius="6" BorderThickness="1" Background="{ThemeResource LayerFillColorDefaultBrush}">
+        Margin="0, 20, 0, 20" Padding="15" CornerRadius="6" BorderThickness="1" Background="{ThemeResource LayerFillColorDefaultBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>

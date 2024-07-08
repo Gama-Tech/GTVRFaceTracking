@@ -59,7 +59,7 @@ public class SettingsViewModel : ObservableRecipient
 
     private async void LoadContributors()
     {
-        Contributors = await GithubService.GetContributors("benaclejames/VRCFaceTracking");
+        Contributors = await GithubService.GetContributors("Gama-Tech/GTVRFaceTracking");
     }
 
     public SettingsViewModel(IThemeSelectorService themeSelectorService, GithubService githubService, OpenVRService openVRService)

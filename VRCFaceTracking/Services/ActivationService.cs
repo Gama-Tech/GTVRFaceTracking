@@ -88,8 +88,8 @@ public class ActivationService : IActivationService
     private async Task StartupAsync()
     {
         await _themeSelectorService.SetRequestedThemeAsync();
-        
-        _logger.LogInformation("VRCFT Version {version} initializing...", Assembly.GetExecutingAssembly().GetName().Version);
+
+        _logger.LogInformation("GT:VR Face Tracking V{version} initializing...", Assembly.GetExecutingAssembly().GetName().Version);
         
         _logger.LogInformation("Initializing OSC...");
         await _oscService.InitializeAsync().ConfigureAwait(false);

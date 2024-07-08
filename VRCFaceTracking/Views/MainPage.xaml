@@ -15,6 +15,9 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
+
+            <views:WarningBlock IsVisible="{x:Bind ViewModel.UpdateAvailable, Mode=OneWay}" LinkClickHandler="UpdateButton_Click" x:Uid="update_available" />
+            
             <ItemsControl ItemsSource="{x:Bind ViewModel.LibManager.ModuleMetadatas}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="models:ModuleMetadata">
@@ -43,6 +46,7 @@
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
+                                
                                 <StackPanel Margin="15, 15" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
                                     <TextBlock FontSize="30" Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind Name, Mode=OneWay}"/>
                                     <TextBlock Visibility="{x:Bind UsingEye, Mode=OneWay}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" x:Uid="EyeTrackingActive" />
@@ -59,7 +63,8 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-            
+
+
             <views:WarningBlock IsVisible="{x:Bind ViewModel.NoModulesInstalled, Mode=OneWay}" LinkClickHandler="NoModuleButton_Click" x:Uid="no_modules_installed_warning" />
             <!-- views:WarningBlock IsVisible="{x:Bind ViewModel.OscWasDisabled, Mode=OneWay}" x:Uid="osc_was_disabled_warning"/-->
             

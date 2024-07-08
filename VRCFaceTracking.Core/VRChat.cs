@@ -5,12 +5,13 @@ namespace VRCFaceTracking.Core
 {
     public static class VRChat
     {
-        public static readonly string VRCData = Path.Combine($"{Environment.GetEnvironmentVariable("localappdata")}Low", "Gama-Tech\\GTVR");
+        public static readonly string VRCData = Path.Combine($"{Environment.GetEnvironmentVariable("localappdata")}Low", "GamaTech\\GTVR");
         
         public static readonly string VRCOSCDirectory = Path.Combine(VRCData, "OSC");
         
         public static bool ForceEnableOsc()
         {
+            return false;
             // Set all registry keys containing osc in the name to 1 in Computer\HKEY_CURRENT_USER\Software\VRChat\VRChat
             var regKey = Registry.CurrentUser.OpenSubKey("Software\\Gama-Tech\\GTVR", true);
             if (regKey == null)

@@ -136,21 +136,21 @@
                             x:Name="forceReInit"
                             Header="Force Re-Initialize"
                             IsEnabled="False"
-                            Description="Force VRCFT to unload and reinitialize all modules">
+                            Description="Force GT:VR Face Tracking to unload and reinitialize all modules">
                             <Button x:Name="forceReInitButton" Click="forceReInitButton_OnClick" Content="Re-Initialize" />
                         </labs:SettingsCard>
                         <labs:SettingsCard
                             x:Name="resetVRCFT"
-                            Header="Reset VRCFT"
+                            Header="Reset Settings"
                             IsEnabled="False"
-                            Description="Reset all data stored by VRCFT in your AppData folder">
+                            Description="Reset all data stored by GT:VR Face Tracking in your AppData folder">
                             <Button x:Name="resetVRCFTButton" Click="resetVRCFTButton_OnClick" Content="Reset" />
                         </labs:SettingsCard>
                         <labs:SettingsCard
                             x:Name="resetAvatarConfig"
-                            Header="Reset VRChat Configs"
+                            Header="Reset GT:VR Configs"
                             IsEnabled="False"
-                            Description="Reset all VRChat OSC config data (will be regenerated when avatar is reloaded)">
+                            Description="Reset all GT:VR OSC config data (will be regenerated when avatar is reloaded)">
                             <Button x:Name="resetVRCAvatarConf" Click="resetVRCAvatarConf_OnClick" Content="Reset"/>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
@@ -187,18 +187,20 @@
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
                     
-                <labs:SettingsExpander x:Uid="Copyright" Header="VRCFaceTracking">
+                <labs:SettingsExpander x:Uid="Copyright" Header="GT:VR Face Tracking">
                     <TextBlock
                             Margin="0,-2,0,0"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                             IsTextSelectionEnabled="True"
                             Text="{x:Bind Version}" />
                     <labs:SettingsExpander.Items>
-                        <labs:SettingsCard x:Uid="CloneRepoCard">
-                            <TextBlock
-                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    IsTextSelectionEnabled="True"
-                                    Text="git clone https://github.com/benaclejames/VRCFaceTracking" />
+                        <labs:SettingsCard 
+                            x:Uid="SourceRepoCard"
+                            IsClickEnabled="True"
+                            Click="sourceRepoCard_Click">
+                            <labs:SettingsCard.ActionIcon>
+                                <FontIcon Glyph="&#xE8A7;" />
+                            </labs:SettingsCard.ActionIcon>
                         </labs:SettingsCard>
                         <labs:SettingsCard
                                 x:Uid="BugRequestCard"
@@ -208,11 +210,18 @@
                                 <FontIcon Glyph="&#xE8A7;" />
                             </labs:SettingsCard.ActionIcon>
                         </labs:SettingsCard>
+                        <!--<labs:SettingsCard x:Uid="CloneRepoCard">
+                            <TextBlock
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                IsTextSelectionEnabled="True"
+                                Text="git clone https://github.com/Gama-Tech/GTVRFaceTracking" />
+                        </labs:SettingsCard>-->
                         <labs:SettingsCard
                                 HorizontalContentAlignment="Left"
                                 ContentAlignment="Vertical"
                                 x:Uid="Dependencies">
                             <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
+                                <HyperlinkButton Content="VRCFaceTracking" NavigateUri="https://github.com/benaclejames/VRCFaceTracking" />
                                 <HyperlinkButton Content="SimpleRustOSC" NavigateUri="https://github.com/benaclejames/SimpleRustOSC" />
                             </StackPanel>
                         </labs:SettingsCard>

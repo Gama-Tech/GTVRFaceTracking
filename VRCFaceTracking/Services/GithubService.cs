@@ -9,7 +9,7 @@ public class GithubService
     public async Task<List<GithubContributor>> GetContributors(string repo)
     {
         var client = new HttpClient();
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("VRCFaceTracking", "1.0"));
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("GTVRFaceTracking", "1.0"));
         var response = await client.GetAsync($"https://api.github.com/repos/{repo}/contributors");
         if (!response.IsSuccessStatusCode)
         {
